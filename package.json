@@ -1,0 +1,29 @@
+{
+  "name": "showcase4",
+  "version": "0.0.1",
+  "description": "showcase",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "dev": "egg-bin dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FE-star/showcase4.git"
+  },
+  "keywords": [
+    "showcase"
+  ],
+  "author": "Daniel Yang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FE-star/showcase4/issues"
+  },
+  "homepage": "https://github.com/FE-star/showcase4#readme",
+  "devDependencies": {
+    "egg": "^1.7.0",
+    "egg-bin": "^4.1.0",
+    "egg-logger": "^1.6.0",
+    "egg-static": "^1.4.1"
+  }
+}

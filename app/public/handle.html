@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>REPORT</title>
+</head>
+<body>
+<div id="container"></div>
+<script>
+function report(id, action) {
+    var img = new Image
+    img.src = `/report?id=${id}&action=${action}`
+}
+
+const btn = document.createElement('button')
+btn.innerText = 'Click Me'
+btn.style = 'width: 300px; height: 200px;'
+btn.onclick = function () {
+    report(1, 'click-button')
+}
+
+document.querySelector('#container')
+    .appendChild(btn)
+</script>
+</body>
+</html>

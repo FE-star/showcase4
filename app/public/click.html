@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>REPORT</title>
+</head>
+<body mark-a="123">
+<div id="container">
+    <div class="nav" mark-b="456">
+        <button 
+            class="btn" 
+            style="width: 400px; height: 200px;"
+        >hello world</button>
+    </div>
+</div>
+<script>
+    document.querySelector('.btn')
+        .addEventListener('click', function () {
+            console.log('hello wolrd')
+        }, false)
+</script>
+<script>
+    const CONFIG = { id: 1, action: 'click' }
+
+    function findMark(target, res) {
+        res = res || { a: null, b: null }
+        const attributes = target.attributes
+        for (let i = 0, l = attributes.length; i < l; i++) {
+            if (~attributes[i].name.indexOf('mark-')) {
+                res[attributes[i].name.substring(5)] = attributes[i].value
+            }
+        }
+        if (target.parentNode && target.parentNode !== document) {
+            findMark(target.parentNode, res)
+        }
+        return res
+    }
+
+    function report(config) {
+        const conf = Object.assign({}, CONFIG, config)
+        ;(new Image)
+            .src = `/click?id=${conf.id}&action=${conf.action}&a=${conf.a}&b=${conf.b}`
+    }
+
+    document.body.addEventListener('click', function (e) {
+        report(findMark(e.target))
+    }, false)
+</script>
+</body>
+</html>
